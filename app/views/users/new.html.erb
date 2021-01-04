@@ -1,12 +1,17 @@
-<% @page_title = "UserAuth | Signup" %>
-<div class="Sign_Form">
-  <h1>Sign Up</h1>
-  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'  }) do |f|  %>
-    <p> Username:</br> <%= f.text_field :username%> </p>
-    <p> Email:</br> <%= f.text_field :email%> </p>
-    <p> Password:</br> <%= f.password_field :password%></p>
-    <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
-    <%= f.submit :Signup %>
-  <% end %>
+<h1> New User </h1>
 
-</div>
+<form method = "post" action = "/users" accept-charset = "UTF-8" >
+  <label for='username'>Username: </label>
+  <input type = 'text' name = 'user[username]'>
+
+  <label for='email'>Email Address: </label>
+  <input type = 'email' name = 'user[email]'>
+
+  <label for='password'>Password: </label>
+  <input type = 'password' name = 'user[password]'>
+
+  <input type = 'submit' value = 'Create'>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token"> 
+
+</form>
