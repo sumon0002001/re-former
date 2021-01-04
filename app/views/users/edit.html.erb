@@ -17,7 +17,7 @@
 </form> %>
 
 <%
-=begin%>
+=begin %>
 <%= form_tag("/users", method: "post") do %>
     <%= label_tag(:username, "Username: ") %>
     <%= text_field_tag(:username) %>
@@ -54,12 +54,11 @@
      </div>
      <br/>
      <%= f.submit 'Update' %>
-   
-   <% end %>
-   <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <% end %>
 
+   <% if @user.errors.any? %>
+   <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> Please check your inputs, here something is wrong</h2>
     <ul>
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
